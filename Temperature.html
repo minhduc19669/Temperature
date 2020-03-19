@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Nhập độ Celcius:<input type="number" id="cel" size="10"><br>
+<button onclick="a()">Change</button><span></span><p id="doF">Độ F:</p><br><span></span><p id="doK">Độ K:</p>
+<script>
+    let Temperature=function (celcius) {
+        this.celcius=celcius;
+        this.getCelcius=function () {
+            return celcius;
+        };
+        this.getChangeFahrenheit=function () {
+            return this.celcius*1.8+32;
+        };
+        this.getChangeKenvin=function () {
+            return this.celcius*1+ 273.15;
+        }
+    };
+    function a() {
+        let temperature = new Temperature(document.getElementById('cel').value);
+        let celcius = temperature.getCelcius();
+        let Fahrenheit = temperature.getChangeFahrenheit();
+        let Kenvin = temperature.getChangeKenvin();
+        document.getElementById('doF').innerHTML ="Độ F:" + temperature.getChangeFahrenheit();
+        document.getElementById('doK').innerHTML ="Độ K:"+ temperature.getChangeKenvin();
+    }
+</script>
+</body>
+</html>
